@@ -6,6 +6,11 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - ticket_status
+  - log_ticket
+  - log_ticket_with_attributes
+  - get_priority
+  - get_category
 
 actions:
 - utter_greet
@@ -14,7 +19,32 @@ actions:
 - utter_happy
 - utter_goodbye
 - utter_iamabot
+- utter_offer_help
+- action_identify_ticket_attributes
+- action_log_ticket
+- action_get_ticket_status
+- utter_request_ticket_attributes
+- utter_ticket_attributes
+- utter_ask_priority
+- utter_form_ticket_attributes
 
+slots:
+  priority:
+    type: unfeaturized
+    auto_fill: false
+  category:
+    type: unfeaturized
+    auto_fill: false
+  requested_slot:
+    type: unfeaturized
+
+entities:
+- priority
+- requested_slot
+
+forms:
+ - ticket_attributes_form
+      
 templates:
   utter_greet:
   - text: "Hey! How are you?"
@@ -33,12 +63,25 @@ templates:
   - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Citta.ai ."
+  - text: "I am a Jarvis, powered by Citta.ai ."
 
   utter_offer_help:
   - text: "How may I help you?"
   - text: "How may I assist you?"
   - text: "What can I do for you?"
 
-  utter_ticket_attributes_confirmation:
-  -
+  utter_request_ticket_attributes:
+    - text: "Let me log a ticket for you. Please specify priority and category for the ticket"
+
+  utter_ticket_attributes:
+    - text: "Shall I log a {priority} priority ticket for you"
+    - text: "Ohh...let me log a {priority} priority ticket for you"
+
+  utter_form_ticket_attributes:
+    - text: "Logging {priority} priority ticket for you"
+
+  utter_ask_priority:
+    - text: "Please provide the priority for the ticket"
+
+
+

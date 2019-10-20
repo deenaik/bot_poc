@@ -97,3 +97,24 @@
 - indeed
 - of course
 - that sounds good
+
+## intent:log_ticket_with_attributes
+- My laptop is not working, log a [critical priority](priority) [hardware issue](category) ticket
+- My laptop is not working, log a [critical](priority) [hardware issue](category) ticket
+
+## intent:ticket_status
+- test
+
+## intent:get_priority
+- [Critical Priority](priority)
+- [Critical](priority)
+- [High](priority)
+- [Medium](priority)
+- [Low](priority)
+- Log a [critical issue](priority)
+
+## lookup:priority
+- Critical
+- High
+- Medium
+- Low

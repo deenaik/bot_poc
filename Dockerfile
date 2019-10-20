@@ -17,4 +17,4 @@ VOLUME ["/app/logs", "/app/models"]
 
 EXPOSE 5005
 
-CMD ["run", "--verbose", "--debug", "--enable-api", "--log-file", "logs/rasaLog.log"]
+CMD ["run", "--verbose", "--debug", "--enable-api"]

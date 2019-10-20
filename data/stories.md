@@ -33,6 +33,3 @@
  - utter_offer_help
 * ticket_status
  - action_get_ticket_status
-
-## Action Attachement
- - 

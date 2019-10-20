@@ -13,8 +13,6 @@ WORKDIR ${RASA_NLU_HOME}
 
 COPY . ${RASA_NLU_HOME}
 
-VOLUME ["/app/logs", "/app/models"]
-
 EXPOSE 5005
 
 CMD ["run", "--verbose", "--debug", "--enable-api"]

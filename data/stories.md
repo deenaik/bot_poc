@@ -6,8 +6,8 @@
 * greet
  - utter_offer_help
 * log_ticket
- - action_identify_priority
- - utter_priority_confirmation
+ - action_identify_ticket_attributes
+## - utter_ticket_attributes_confirmation
 * affirm
  - action_log_ticket
 
@@ -15,8 +15,8 @@
 * greet
  - utter_offer_help
 * log_ticket
- - action_identify_priority
- - utter_priority_confirmation
+ - action_identify_ticket_attributes
+ - utter_ticket_attributes_confirmation
 * deny
  - action_select_priority
  - action_log_ticket
@@ -25,7 +25,7 @@
 * greet
  - utter_offer_help
 * log_ticket
- - action_identify_priority
+ - action_identify_ticket_attributes
  - action_log_ticket
 
 ## Ticket Status

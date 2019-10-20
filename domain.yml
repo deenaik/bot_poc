@@ -33,4 +33,12 @@ templates:
   - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a bot, powered by Citta.ai ."
+
+  utter_offer_help:
+  - text: "How may I help you?"
+  - text: "How may I assist you?"
+  - text: "What can I do for you?"
+
+  utter_ticket_attributes_confirmation:
+  -

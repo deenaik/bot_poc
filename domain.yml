@@ -27,14 +27,13 @@ actions:
 - utter_ticket_attributes
 - utter_ask_priority
 - utter_form_ticket_attributes
+- action_reset_slots
 
 slots:
   priority:
     type: unfeaturized
-    auto_fill: false
   category:
     type: unfeaturized
-    auto_fill: false
   requested_slot:
     type: unfeaturized
 

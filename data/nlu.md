@@ -111,10 +111,15 @@
 - [High](priority)
 - [Medium](priority)
 - [Low](priority)
+- [critical priority](priority)
+- [critical](priority)
+- [high](priority)
+- [medium](priority)
+- [low](priority)
 - Log a [critical issue](priority)
-
-## lookup:priority
-- Critical
-- High
-- Medium
-- Low
+- Log a [high issue](priority)
+- Log a [medium issue](priority)
+- Log a [low issue](priority)
+- [High Priority](priority)
+- [Medium Priority](priority)
+- [Low Priority](priority)

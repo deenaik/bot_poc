@@ -18,13 +18,10 @@
  - action_identify_ticket_attributes
  - utter_ticket_attributes
 * deny
- - utter_ask_priority
- - slot{"requested_slot": "priority"}
-* get_priority
+ - action_reset_slots
  - ticket_attributes_form
  - form{"name":"ticket_attributes_form"}
  - form{"name":null}
- - utter_form_ticket_attributes
  - action_log_ticket
 
  ## Log Ticket with priority

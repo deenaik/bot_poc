@@ -14,7 +14,7 @@ class ActionIdentifyTicketAttributes(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
          print(self.name())
-         return [SlotSet("priority", "High"),SlotSet("category", "Network Issue")]
+         return [SlotSet("priority", "High")]
 
 
 class ActionLogTicket(Action):
@@ -32,6 +32,16 @@ class ActionLogTicket(Action):
          dispatcher.utter_message("Ticket logged successfully! :)")
          return [Restarted(), AllSlotsReset()]
 
+class ActionResetSlots(Action):
+
+    def name(self) -> Text:
+        return "action_reset_slots"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+         print(self.name())
+         return [AllSlotsReset()]
 
 class ActionGetTicketStatus(Action):
 
@@ -56,7 +66,6 @@ class FormTicketAttributes(FormAction):
         return ["priority"]
 
     def slot_mappings(self):
-        print(self.from_text(intent="get_priority"))
         return {
             "priority": [self.from_entity(entity="priority",intent="get_priority")]
         }

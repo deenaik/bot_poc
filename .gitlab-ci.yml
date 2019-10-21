@@ -5,7 +5,7 @@ stages:
 
 before_script:
   - echo "Stage Started for " $CI_COMMIT_REF_NAME
-  - docker-compose down
+  - docker-compose down || true
     
 train:
   only:

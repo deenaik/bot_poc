@@ -4,8 +4,7 @@ WORKDIR /app
 
 COPY . action_server/.
 
-RUN pip install --upgrade pip \
-    && pip install -r action_server/requirements.txt --no-cache-dir
+RUN pip install --upgrade pip
 
 EXPOSE 5055
 

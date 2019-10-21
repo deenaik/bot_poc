@@ -29,8 +29,9 @@ class ActionLogTicket(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-         dispatcher.utter_message("Ticket logged successfully! :)")
-         return [Restarted(), AllSlotsReset()]
+          dispatcher.utter_message("Ticket logged successfully! :)")
+          return[]
+        # return [Restarted(), AllSlotsReset()]
 
 class ActionResetSlots(Action):
 

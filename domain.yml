@@ -11,6 +11,10 @@ intents:
 - log_ticket_with_attributes
 - get_priority
 - get_category
+- affirm_attachment
+- deny_attachment
+- affirm_good_work
+
 entities:
 - priority
 - requested_slot
@@ -50,6 +54,20 @@ templates:
   - text: Logging {priority} priority ticket for you
   utter_ask_priority:
   - text: Please provide the priority for the ticket
+  utter_attachment_upload:
+  - text: Do you wish to upload any relevant document?
+  utter_click_upload:
+  - text: Please click on the upload button
+  utter_upload_successful:
+  - text: Your document has been uploaded successfully!!
+  utter_deny_attachment:
+  - text: No problem, I will be here to assist you :)
+  utter_welcome_message:
+  - text: Any time :)
+  - text: You're welcome :)
+  - text: My pleasure :)
+  - text: ok....Let me know if you need any other assitance.
+
 actions:
 - utter_greet
 - utter_cheer_up
@@ -67,5 +85,11 @@ actions:
 - utter_form_ticket_attributes
 - action_reset_slots
 - action_clear_memory
+- utter_attachment_upload
+- utter_click_upload
+- utter_upload_successful
+- utter_deny_attachment
+- utter_welcome_message
+
 forms:
 - ticket_attributes_form

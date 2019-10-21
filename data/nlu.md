@@ -19,6 +19,7 @@
 - don't like that
 - no way
 - not really
+- nope
 
 ## intent:mood_great
 - perfect
@@ -61,10 +62,41 @@
 - I need access to coursera portal for AI related courses.
 - I require youtube access for watching share point tutorials.
 
+## intent:affirm_attachment
+- ok
+- yes
+- sure
+
+## intent:deny_attachment
+- no
+- not now
+- not required
+- forget it
+- I don't think so
+- not needed
+- not relevant
+- nope
+
+## intent:affirm_good_work
+- good job
+- nice work
+- thanks
+- thanks that was great help
+- awesome work
+- awesome
+- thank you
+- thanks a lot
+- thank you very much
+- thank u
+- wow that's nice
+- wow that's great
+- good work
+
 ## intent:affirm
 - yes
 - correct
 - affirmative that is fine yes
+- sure, please go ahead
 - that is good
 - yes sir
 - affirmative that is good yep

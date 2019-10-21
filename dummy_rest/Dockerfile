@@ -7,7 +7,7 @@ COPY . .
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
-EXPOSE 5055
+EXPOSE 80
 
 ENTRYPOINT [ "python" ]
 

@@ -20,6 +20,7 @@ services:
     depends_on:
       - action_server
       - duckling
+      - dummy_rest
     ports:
       - 5005:5005
     volumes:
@@ -34,10 +35,20 @@ services:
     container_name: action_server
     hostname: action_server
     environment:
-      - SHAREPOINT_URL=http://localhost:8080
+      - SHAREPOINT_URL=http://dummy_rest:8080
     ports:
       - "5055:5055"
     command: "start --actions action_server.actions"
+
+  dummy_rest:
+    build: dummy_rest/.
+    image: dummy_rest
+    networks:
+      - chatbotnetwork
+    container_name: dummy_rest
+    hostname: dummy_rest
+    ports:
+      - "80:80"
 
   duckling:
     image: rasa/duckling:latest

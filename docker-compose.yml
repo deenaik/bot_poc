@@ -1,0 +1,56 @@
+version: "2"
+services:
+
+  rasa_train:
+    build: .
+    image: rasa
+    container_name: rasa_train
+    hostname: rasa_train
+    volumes:
+      - rasa_training:/app/models
+      - rasa_logs:/app/logs
+    command: "train --verbose --debug --fixed-model-name rasa-model --domain domains"
+  
+  rasa:
+    image: rasa
+    networks:
+      - chatbotnetwork
+    container_name: rasa
+    hostname: rasa
+    depends_on:
+      - action_server
+      - duckling
+    ports:
+      - 5005:5005
+    volumes:
+      - rasa_training:/app/models
+      - rasa_logs:/app/logs
+
+  action_server:
+    build: action_server/.
+    image: action_server
+    networks:
+      - chatbotnetwork
+    container_name: action_server
+    hostname: action_server
+    environment:
+      - SHAREPOINT_URL=http://localhost:8080
+    ports:
+      - "5055:5055"
+    command: "start --actions action_server.actions"
+
+  duckling:
+    image: rasa/duckling:latest
+    networks:
+      - chatbotnetwork
+    container_name: duckling
+    hostname: duckling
+    ports:
+      - "8000:8000"
+
+networks:
+  chatbotnetwork:
+
+volumes:
+  rasa_training:
+  rasa_logs:

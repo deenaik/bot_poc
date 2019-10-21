@@ -58,7 +58,7 @@ class ActionClearMemory(Action):
 class ActionGetTicketStatus(Action):
 
     def name(self) -> Text:
-        return "action_get_ticket_status";
+        return "action_get_ticket_status"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -71,7 +71,7 @@ class ActionGetTicketStatus(Action):
 class FormTicketAttributes(FormAction):
 
     def name(self) -> Text:
-        return "ticket_attributes_form";
+        return "ticket_attributes_form"
 
     @staticmethod
     def required_slots(tracker: Tracker) -> List[Text]:

@@ -1,17 +1,55 @@
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - ticket_status
-  - log_ticket
-  - log_ticket_with_attributes
-  - get_priority
-  - get_category
-
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- ticket_status
+- log_ticket
+- log_ticket_with_attributes
+- get_priority
+- get_category
+entities:
+- priority
+- requested_slot
+- category
+slots:
+  category:
+    type: unfeaturized
+  priority:
+    type: unfeaturized
+  requested_slot:
+    type: unfeaturized
+templates:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a Jarvis, powered by Citta.ai .
+  utter_offer_help:
+  - text: How may I help you?
+  - text: How may I assist you?
+  - text: What can I do for you?
+  utter_request_ticket_attributes:
+  - text: Let me log a ticket for you. Please specify priority and category for the
+      ticket
+  utter_ticket_attributes:
+  - text: Shall I log a {priority} priority ticket for you
+  - text: Ohh...let me log a {priority} priority ticket for you
+  utter_form_ticket_attributes:
+  - text: Logging {priority} priority ticket for you
+  utter_ask_priority:
+  - text: Please provide the priority for the ticket
 actions:
 - utter_greet
 - utter_cheer_up
@@ -28,59 +66,6 @@ actions:
 - utter_ask_priority
 - utter_form_ticket_attributes
 - action_reset_slots
-
-slots:
-  priority:
-    type: unfeaturized
-  category:
-    type: unfeaturized
-  requested_slot:
-    type: unfeaturized
-
-entities:
-- priority
-- requested_slot
-
+- action_clear_memory
 forms:
- - ticket_attributes_form
-      
-templates:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a Jarvis, powered by Citta.ai ."
-
-  utter_offer_help:
-  - text: "How may I help you?"
-  - text: "How may I assist you?"
-  - text: "What can I do for you?"
-
-  utter_request_ticket_attributes:
-    - text: "Let me log a ticket for you. Please specify priority and category for the ticket"
-
-  utter_ticket_attributes:
-    - text: "Shall I log a {priority} priority ticket for you"
-    - text: "Ohh...let me log a {priority} priority ticket for you"
-
-  utter_form_ticket_attributes:
-    - text: "Logging {priority} priority ticket for you"
-
-  utter_ask_priority:
-    - text: "Please provide the priority for the ticket"
-
-
-
+- ticket_attributes_form

@@ -43,6 +43,18 @@ class ActionResetSlots(Action):
          print(self.name())
          return [AllSlotsReset()]
 
+
+class ActionClearMemory(Action):
+
+    def name(self) -> Text:
+        return "action_clear_memory"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+         print(self.name())
+         return [AllSlotsReset(), Restarted()]
+
 class ActionGetTicketStatus(Action):
 
     def name(self) -> Text:

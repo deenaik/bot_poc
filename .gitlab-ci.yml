@@ -1,0 +1,33 @@
+stages:
+  - train
+  - test
+  - dev_deploy
+
+before_script:
+  - echo "Stage Started for " $CI_COMMIT_REF_NAME
+    
+train:
+  tags:
+    - nluvm
+  only:
+    - master
+  stage: train
+  script:
+    - docker-compose up -d --build action_server
+    - docker-compose up --build rasa_train
+
+test:
+  tags:
+    - nluvm
+  stage: test
+  script:
+    - echo "Need to add test scripts"
+
+dev_deploy:
+  tags:
+    - nluvm
+  only:
+    - master
+  stage: dev_deploy
+  script:
+    - docker-compose up -d rasa

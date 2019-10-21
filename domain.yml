@@ -13,7 +13,6 @@ intents:
 - get_category
 - affirm_attachment
 - deny_attachment
-- affirm_good_work
 
 entities:
 - priority
@@ -62,11 +61,6 @@ templates:
   - text: Your document has been uploaded successfully!!
   utter_deny_attachment:
   - text: No problem, I will be here to assist you :)
-  utter_welcome_message:
-  - text: Any time :)
-  - text: You're welcome :)
-  - text: My pleasure :)
-  - text: ok....Let me know if you need any other assitance.
 
 actions:
 - utter_greet
@@ -89,7 +83,6 @@ actions:
 - utter_click_upload
 - utter_upload_successful
 - utter_deny_attachment
-- utter_welcome_message
 
 forms:
 - ticket_attributes_form

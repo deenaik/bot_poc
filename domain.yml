@@ -13,6 +13,7 @@ intents:
 - get_category
 - affirm_attachment
 - deny_attachment
+- file_upload
 
 entities:
 - priority
@@ -40,9 +41,9 @@ templates:
   utter_iamabot:
   - text: I am a Jarvis, powered by Citta.ai .
   utter_offer_help:
-  - text: How may I help you?
-  - text: How may I assist you?
-  - text: What can I do for you?
+  - text: "How may I help you? :smile:"
+  - text: "How may I assist you? :smile:"
+  - text: "What can I do for you? :smile:"
   utter_request_ticket_attributes:
   - text: Let me log a ticket for you. Please specify priority and category for the
       ticket
@@ -52,7 +53,39 @@ templates:
   utter_form_ticket_attributes:
   - text: Logging {priority} priority ticket for you
   utter_ask_priority:
-  - text: Please provide the priority for the ticket
+  - custom:
+      blocks:
+        - type: section
+          text:
+            type: mrkdwn
+            text: "Please provide the priority for the ticket\n"
+          accessory:
+            type: static_select
+            placeholder:
+              type: plain_text
+              text: Select an item
+              emoji: true
+            options:
+              - text:
+                  type: plain_text
+                  text: Critical
+                  emoji: true
+                value: Critical
+              - text:
+                  type: plain_text
+                  text: High
+                  emoji: true
+                value: High
+              - text:
+                  type: plain_text
+                  text: Medium
+                  emoji: true
+                value: Medium
+              - text:
+                  type: plain_text
+                  text: Low
+                  emoji: true
+                value: Low
   utter_attachment_upload:
   - text: Do you wish to upload any relevant document?
   utter_click_upload:
@@ -60,7 +93,7 @@ templates:
   utter_upload_successful:
   - text: Your document has been uploaded successfully!!
   utter_deny_attachment:
-  - text: No problem, I will be here to assist you :)
+  - text: "No problem, I will be here to assist you :smile:"
 
 actions:
 - utter_greet
@@ -83,6 +116,8 @@ actions:
 - utter_click_upload
 - utter_upload_successful
 - utter_deny_attachment
+- action_file_upload
 
 forms:
 - ticket_attributes_form
+- ticket_file_form

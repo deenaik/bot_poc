@@ -1,34 +1,34 @@
-## greet
+## Log ticket Scenario 1
 * greet
   - utter_offer_help
-  
-## say goodbye
-* goodbye
-  - utter_goodbye
- 
-## Log Ticket simple
 * log_ticket
  - action_identify_ticket_attributes
  - utter_ticket_attributes
 * affirm
- - action_log_ticket
  - utter_attachment_upload
-* affirm_attachment
+* affirm OR affirm_attachment
  - utter_click_upload
- - utter_upload_successful
- 
- ## Log Ticket simple deny attachment
+* file_upload
+ - action_log_ticket
+ - action_clear_memory
+
+## Log Ticket Scenario 2
+* greet
+  - utter_offer_help
 * log_ticket
  - action_identify_ticket_attributes
  - utter_ticket_attributes
 * affirm
- - action_log_ticket
  - utter_attachment_upload
-* deny_attachment
+* deny OR deny_attachment
  - utter_deny_attachment
- - action_reset_slots
-  
-## Log Ticket change priority
+ - action_log_ticket
+ - action_clear_memory
+
+
+## Log Ticket Scenario 3
+* greet
+  - utter_offer_help
 * log_ticket
  - action_identify_ticket_attributes
  - utter_ticket_attributes
@@ -37,16 +37,25 @@
  - ticket_attributes_form
  - form{"name":"ticket_attributes_form"}
  - form{"name":null}
- - action_log_ticket
  - utter_attachment_upload
-
- ## Log Ticket with priority
-* log_ticket_with_attributes
-* affirm
+* affirm OR affirm_attachment
+ - utter_click_upload
+* file_upload
  - action_log_ticket
- - utter_attachment_upload
- 
+ - action_clear_memory
 
-## Ticket Status
-* ticket_status
- - action_get_ticket_status
+ ## Log Ticket Scenario 4
+* greet
+  - utter_offer_help
+* log_ticket
+ - action_identify_ticket_attributes
+ - utter_ticket_attributes
+* deny
+ - action_reset_slots
+ - ticket_attributes_form
+ - form{"name":"ticket_attributes_form"}
+ - form{"name":null}
+ - utter_attachment_upload
+* deny OR deny_attachment
+ - action_log_ticket
+ - action_clear_memory

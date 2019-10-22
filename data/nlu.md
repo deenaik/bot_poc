@@ -63,18 +63,18 @@
 - I require youtube access for watching share point tutorials.
 
 ## intent:affirm_attachment
-- ok
-- yes
-- sure
+- yes now
+- yes required
+- required
+- needed it
+- it is relevant
 
 ## intent:deny_attachment
 - not now
 - not required
 - forget it
-- I don't think so
 - not needed
 - not relevant
-- nope
 
 ## intent:affirm
 - yes
@@ -139,3 +139,7 @@
 - [High Priority](priority)
 - [Medium Priority](priority)
 - [Low Priority](priority)
+
+## intent:file_upload
+- Test File
+- Attachment

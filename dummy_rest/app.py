@@ -1,12 +1,16 @@
 # dummy_rest/app.py
 
 from flask import Flask
+from flask_restplus import Resource, Api
+
 app = Flask(__name__)
+api = Api(app)
 
 
-@app.route('/')
-def hello_world():
-    return 'Hey, we have Flask in a Docker container!'
+@api.route('/ticket')
+class InfraTicket(Resource):
+    def get(self):
+        return {'hello': 'world'}
 
 
 if __name__ == '__main__':

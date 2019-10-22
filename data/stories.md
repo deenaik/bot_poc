@@ -6,10 +6,6 @@
 * goodbye
   - utter_goodbye
  
- ## say thanks
-* affirm_good_work 
- - utter_welcome_message
-
 ## Log Ticket simple
 * log_ticket
  - action_identify_ticket_attributes
@@ -30,6 +26,7 @@
  - utter_attachment_upload
 * deny_attachment
  - utter_deny_attachment
+ - action_reset_slots
   
 ## Log Ticket change priority
 * log_ticket

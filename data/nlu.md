@@ -68,7 +68,6 @@
 - sure
 
 ## intent:deny_attachment
-- no
 - not now
 - not required
 - forget it
@@ -76,21 +75,6 @@
 - not needed
 - not relevant
 - nope
-
-## intent:affirm_good_work
-- good job
-- nice work
-- thanks
-- thanks that was great help
-- awesome work
-- awesome
-- thank you
-- thanks a lot
-- thank you very much
-- thank u
-- wow that's nice
-- wow that's great
-- good work
 
 ## intent:affirm
 - yes

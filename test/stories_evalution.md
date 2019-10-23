@@ -63,7 +63,21 @@
 * file_upload: test file
  - action_file_upload
  - action_clear_memory
-     
+
+## Case 3.1: Get ticket status - #Ticketid valid     
+* get_ticket_status: gimme status of TKT456
+ - action_validate_ticket_for_status
+ - action_get_ticket_status
+ - action_clear_memory
+ 
+## Case 3.2: Get ticket status - #Ticketid invalid
+* get_ticket_status: gimme status of TKT4566
+ - action_validate_ticket_for_status
+* valid_ticketID: my mistake, use TKT456
+ - action_validate_ticket_for_status
+ - action_get_ticket_status
+ - action_clear_memory
+  
 ## Log Ticket Form
 ##* greet: Hello
 ##    - utter_offer_help

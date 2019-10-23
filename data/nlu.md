@@ -124,9 +124,6 @@
 - My laptop is not working, log a [critical priority](priority) [hardware issue](category) ticket
 - My laptop is not working, log a [critical](priority) [hardware issue](category) ticket
 
-## intent:ticket_status
-- test
-
 ## intent:get_priority
 - [Critical Priority](priority)
 - [Critical](priority)
@@ -202,6 +199,7 @@
 - [TKT777](ticketID)
 - [TKT546](ticketID)
 - [TKT789](ticketID)
+- [TKT4566](ticketID)
 
 ## intent:upload_file_on_ticket
 - I want to upload a document against my ticket TKT456
@@ -218,4 +216,18 @@
 - my mistake, use TKT456
 - ohh, its TKT456
 - ok try TKT456
-- TKT456
+
+## intent:get_ticket_status
+- What is the current status of my ticket TKT456
+- get me the status of TKT123
+- show me the current status of TKT456
+- i need status of TKT234
+- gimme status of TKT456
+- find the status of TKT678
+- can you help me with the status of TKT675
+- get me status of TKT555
+- help me status of TKT234
+- track the status of TKT789
+- what is the progress on TKT345
+- report the progress of TKT789
+- gimme status of TKT4566

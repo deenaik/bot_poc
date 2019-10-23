@@ -6,7 +6,6 @@ intents:
 - mood_great
 - mood_unhappy
 - bot_challenge
-- ticket_status
 - log_ticket
 - log_ticket_with_attributes
 - get_priority
@@ -19,6 +18,7 @@ intents:
 - change_priority
 - upload_file_on_ticket
 - valid_ticketID
+- get_ticket_status
 
 entities:
 - priority
@@ -138,6 +138,7 @@ actions:
 - utter_change_priority
 - action_validate_ticket
 - utter_invalid_ticketID
+- action_validate_ticket_for_status
 
 forms:
 - ticket_attributes_form

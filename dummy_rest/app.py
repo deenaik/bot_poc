@@ -9,8 +9,11 @@ api = Api(app)
 
 @api.route('/ticket')
 class InfraTicket(Resource):
-    def get(self):
-        return {'hello': 'world'}
+    def put(self, name, category, priority, loggedBy):
+        return {'ticketID': 'TKT007'}
+        
+    def get(self, ticketID):
+        return { 'status': 'InProgress'}
 
 
 if __name__ == '__main__':

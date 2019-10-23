@@ -4,6 +4,8 @@ services:
   rasa_train:
     build: .
     image: rasa
+    networks:
+      - chatbotnetwork
     container_name: rasa_train
     hostname: rasa_train
     volumes:

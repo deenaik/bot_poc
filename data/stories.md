@@ -43,6 +43,7 @@
   - ticket_attributes_form
   - form{"name":"ticket_attributes_form"}
   - form{"name":null}
+  - utter_attachment_upload
 * affirm OR affirm_attachment
   - slot {"file": null}
   - ticket_file_form
@@ -59,6 +60,7 @@
   - ticket_attributes_form
   - form{"name":"ticket_attributes_form"}
   - form{"name":null}
+  - utter_attachment_upload
 * deny OR deny_attachment
   - utter_deny_attachment
   - action_log_ticket

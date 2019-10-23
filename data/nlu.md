@@ -202,8 +202,6 @@
 - [TKT546](ticketID)
 - [TKT789](ticketID)
 - [TKT4566](ticketID)
-
-## intent:upload_file_on_ticket
 - I want to upload a document against my ticket TKT456
 - can you upload a file for TKT456
 - i need to upload a doc against TKT123

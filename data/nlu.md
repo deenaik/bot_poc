@@ -144,14 +144,18 @@
 - [Low Priority](priority)
 
 ## intent:change_priority
-- no, this issue is a showstopper for me, my work is stuck
-- no, this issue is a showstopper
-- log a critical issue
-- I need this to be logged as a critical issue
-- change priority to critical
-- I need it asap
-- this is urgent
-- this is showstopper
+- no, this issue is a [showstopper](priority) for me, my work is stuck
+- no, this issue is a [showstopper](priority)
+- log a [critical issue](priority)
+- I need this to be logged as a [critical issue](priority)
+- change priority to [critical](priority)
+- I need it [asap](priority)
+- this is [urgent](priority)
+- this is [showstopper](priority)
+- log it as [medium](priority)
+- make it [medium](priority)
+- change priority to [medium](priority)
+- this can be considered as [medium](priority)
 
 ## synonym:critical
 - urgent

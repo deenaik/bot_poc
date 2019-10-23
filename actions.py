@@ -75,7 +75,7 @@ class ActionGetTicketStatus(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message("Your ticket is currently �under analysis�. Due date for ticket resolution is 30-Oct-2019.")
+        dispatcher.utter_message("Your ticket is currently 'under analysis'. Due date for ticket resolution is 30-Oct-2019.")
         print(self.name())
         return []
 

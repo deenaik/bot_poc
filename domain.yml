@@ -36,6 +36,8 @@ slots:
     type: unfeaturized
   file:
     type: unfeaturized
+  file_text:
+    type: unfeaturized
 templates:
   utter_greet:
   - text: Hey! How are you?

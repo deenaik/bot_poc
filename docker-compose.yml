@@ -58,20 +58,6 @@ services:
       - "5055:5055"
     command: "run actions"
 
-  x_server:
-    image: rasa
-    networks:
-      - chatbotnetwork
-    container_name: x_server
-    hostname: x_server
-    links:
-      - mongo
-    depends_on:
-      - mongo
-    ports:
-      - "5002:5002"
-    command: "x"
-
   dummy_rest:
     build: dummy_rest/.
     image: dummy_rest

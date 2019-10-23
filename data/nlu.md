@@ -142,16 +142,18 @@
 - [High Priority](priority)
 - [Medium Priority](priority)
 - [Low Priority](priority)
-
-## intent:change_priority
-- no, this issue is a showstopper for me, my work is stuck
-- no, this issue is a showstopper
-- log a critical issue
-- I need this to be logged as a critical issue
-- change priority to critical
-- I need it asap
-- this is urgent
-- this is showstopper
+- no, this issue is a [showstopper](priority) for me, my work is stuck
+- no, this issue is a [showstopper](priority)
+- log a [critical issue](priority)
+- I need this to be logged as a [critical issue](priority)
+- change priority to [critical](priority)
+- I need it [asap](priority)
+- this is [urgent](priority)
+- this is [showstopper](priority)
+- log it as [medium](priority)
+- make it [medium](priority)
+- change priority to [medium](priority)
+- this can be considered as [medium](priority)
 
 ## synonym:critical
 - urgent
@@ -200,8 +202,6 @@
 - [TKT546](ticketID)
 - [TKT789](ticketID)
 - [TKT4566](ticketID)
-
-## intent:upload_file_on_ticket
 - I want to upload a document against my ticket TKT456
 - can you upload a file for TKT456
 - i need to upload a doc against TKT123

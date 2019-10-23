@@ -25,10 +25,10 @@ action_endpoint:
 #    db: <number of your database within redis, e.g. 0>
 #    password: <password used for authentication>
 
-tracker_store:
-   type: mongod
-   url: mongodb://mongo:27017
-   db: rasa
+#tracker_store:
+type: mongod
+url: mongodb://mongo:27017
+db: rasa
 #    username: <username used for authentication>
 #    password: <password used for authentication>
 

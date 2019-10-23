@@ -34,6 +34,10 @@ slots:
     type: unfeaturized
   requested_slot:
     type: unfeaturized
+  file:
+    type: unfeaturized
+  file_text:
+    type: unfeaturized
 templates:
   utter_greet:
   - text: Hey! How are you?
@@ -98,7 +102,7 @@ templates:
                 value: Low
   utter_attachment_upload:
   - text: Do you wish to upload any relevant document?
-  utter_click_upload:
+  utter_ask_file:
   - text: Please click on the upload button
   utter_upload_successful:
   - text: Your document has been uploaded successfully!!
@@ -130,10 +134,9 @@ actions:
 - action_reset_slots
 - action_clear_memory
 - utter_attachment_upload
-- utter_click_upload
+- utter_ask_file
 - utter_upload_successful
 - utter_deny_attachment
-- action_file_upload
 - utter_welcome_message
 - utter_change_priority
 - action_validate_ticket

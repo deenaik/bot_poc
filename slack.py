@@ -180,6 +180,18 @@ class SlackInput(InputChannel):
         )
 
     @staticmethod
+    def _is_file_upload(slack_event):
+        return (
+            slack_event.get("event")
+            and (
+                slack_event.get("event").get("type") == "message"
+            )
+            and "files" in slack_event.get("event")
+            and slack_event.get("event").get("files")
+            and not slack_event.get("event").get("bot_id")
+        )
+		
+    @staticmethod
     def _sanitize_user_message(text, uids_to_remove):
         """Remove superfluous/wrong/problematic tokens from a message.
 
@@ -323,11 +335,19 @@ class SlackInput(InputChannel):
                     return response.json(output.get("challenge"))
 
                 elif self._is_user_message(output):
-                    if "files" in output["event"]:
-                        text = '{ "file": '+output["event"]["files"][0]["id"] + \
+                        
+                    return await self.process_message(
+                        request,
+                        on_new_message,
+                        text=self._sanitize_user_message(
+                            output["event"]["text"], output["authed_users"]
+                        ),
+                        sender_id=output.get("event").get("user"),
+                    )
+                elif self._is_file_upload(output):
+                    text = '{ "file": '+output["event"]["files"][0]["id"] + \
 						    ', "text": '+output["event"]["text"]+' }'
-                    else:
-                        text = output["event"]["text"]
+                        
                     return await self.process_message(
                         request,
                         on_new_message,

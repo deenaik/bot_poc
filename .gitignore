@@ -34,6 +34,8 @@ MANIFEST
 # VS Code
 .vscode
 .idea
+
+# rasa
 models/
 
 # Installer logs

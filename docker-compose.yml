@@ -1,5 +1,15 @@
 version: "2"
 services:
+  mongo:
+    image: mongo
+    networks:
+      - chatbotnetwork
+    container_name: mongo
+    hostname: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - rasa_data:/data/db
 
   rasa_train:
     build: .
@@ -19,7 +29,10 @@ services:
       - chatbotnetwork
     container_name: rasa
     hostname: rasa
+    links:
+      - mongo
     depends_on:
+      - mongo
       - action_server
       - duckling
       - dummy_rest
@@ -37,9 +50,27 @@ services:
     hostname: action_server
     environment:
       - SHAREPOINT_URL=http://dummy_rest:8080
+    links:
+      - mongo
+    depends_on:
+      - mongo
     ports:
       - "5055:5055"
     command: "run actions"
+
+  x_server:
+    image: rasa
+    networks:
+      - chatbotnetwork
+    container_name: x_server
+    hostname: x_server
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    ports:
+      - "5002:5002"
+    command: "x"
 
   dummy_rest:
     build: dummy_rest/.
@@ -64,5 +95,6 @@ networks:
   chatbotnetwork:
 
 volumes:
+  rasa_data:
   rasa_training:
   rasa_logs:

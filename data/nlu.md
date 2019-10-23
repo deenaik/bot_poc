@@ -142,8 +142,6 @@
 - [High Priority](priority)
 - [Medium Priority](priority)
 - [Low Priority](priority)
-
-## intent:change_priority
 - no, this issue is a [showstopper](priority) for me, my work is stuck
 - no, this issue is a [showstopper](priority)
 - log a [critical issue](priority)

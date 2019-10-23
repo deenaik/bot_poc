@@ -39,7 +39,7 @@
 * log_ticket
   - action_identify_ticket_attributes
   - utter_ticket_attributes
-* change_priority
+  - slot {"priority": null}
   - ticket_attributes_form
   - form{"name":"ticket_attributes_form"}
   - form{"name":null}
@@ -55,7 +55,7 @@
 * log_ticket
   - action_identify_ticket_attributes
   - utter_ticket_attributes
-* change_priority
+  - slot {"priority": null}
   - ticket_attributes_form
   - form{"name":"ticket_attributes_form"}
   - form{"name":null}

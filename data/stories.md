@@ -17,8 +17,10 @@
 * affirm
  - utter_attachment_upload
 * affirm OR affirm_attachment
- - utter_click_upload
-* file_upload
+ - slot {"file": null}
+ - ticket_file_form
+ - form{"name":"ticket_file_form"}
+ - form{"name":null}
  - action_log_ticket
  - action_clear_memory
 
@@ -37,13 +39,14 @@
 * log_ticket
  - action_identify_ticket_attributes
  - utter_ticket_attributes
-* change_priority
- - ticket_attributes_form
+ - slot {"priority": null} - ticket_attributes_form
  - form{"name":"ticket_attributes_form"}
  - form{"name":null}
 * affirm OR affirm_attachment
- - utter_click_upload
-* file_upload
+ - action_reset_slots
+ - ticket_file_form
+ - form{"name":"ticket_file_form"}
+ - form{"name":null}
  - action_log_ticket
  - action_clear_memory
  
@@ -51,8 +54,7 @@
 * log_ticket
  - action_identify_ticket_attributes
  - utter_ticket_attributes
-* change_priority
- - ticket_attributes_form
+ - slot {"priority": null - ticket_attributes_form
  - form{"name":"ticket_attributes_form"}
  - form{"name":null}
 * deny OR deny_attachment

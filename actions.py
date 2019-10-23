@@ -1,9 +1,11 @@
 from typing import Any, Text, Dict, List
-from rasa_sdk import Action, Tracker, ActionExecutionRejection
+
+from rasa_sdk import Action, Tracker
 from rasa_sdk.events import Restarted, AllSlotsReset
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.forms import SlotSet, FormAction
 from rasa_sdk.forms import REQUESTED_SLOT
+from rasa_sdk.forms import SlotSet, FormAction
+
 
 class ActionIdentifyTicketAttributes(Action):
 
@@ -29,7 +31,7 @@ class ActionLogTicket(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-          print(tracker.current_state())
+          print(self.name())
           dispatcher.utter_message("Ticket logged successfully! :)")
           return[]
 
@@ -38,14 +40,9 @@ class ActionFileUpload(Action):
     def name(self) -> Text:
         return "action_file_upload"
 
-    def forget(self, slots: Dict[Text, Any]):
-        for key, value in slots.items():
-            slots[key] = None
-
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-          print(tracker.current_state())
           dispatcher.utter_template("utter_upload_successful", tracker)
           return[]
 
@@ -80,7 +77,7 @@ class ActionGetTicketStatus(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message("Your ticket is currently “under analysis”. Due date for ticket resolution is 30-Oct-2019.")
+        dispatcher.utter_message("Your ticket is currently �under analysis�. Due date for ticket resolution is 30-Oct-2019.")
         print(self.name())
         return []
 
@@ -117,15 +114,11 @@ class FormTicketAttributes(FormAction):
             slot_values.update(self.extract_requested_slot(dispatcher,
                                                            tracker, domain))
             if not slot_values:
-                # reject form action execution
-                # if some slot was requested but nothing was extracted
-                # it will allow other policies to predict another action
-                raise ActionExecutionRejection(self.name(),
-                                               "Failed to validate slot {0} "
-                                               "with action {1}"
-                                               "".format(slot_to_fill,
-                                                         self.name()))
+                return []
 
+        for slot, value in slot_values.items():
+            if value not in ["Critical","High", "Medium", "Low"]:
+                return []
         return [SlotSet(slot, value) for slot, value in slot_values.items()]
 
     def submit(
@@ -149,7 +142,7 @@ class FormTicketFile(FormAction):
 
     def slot_mappings(self):
         return {
-            "priority": [self.from_entity(entity="priority",intent="get_priority")]
+            "file": [ self.from_text(not_intent=[]) ]
         }
 
     def validate(self,
@@ -165,19 +158,11 @@ class FormTicketFile(FormAction):
 
         # extract requested slot
         slot_to_fill = tracker.get_slot(REQUESTED_SLOT)
-        print(slot_to_fill)
         if slot_to_fill:
             slot_values.update(self.extract_requested_slot(dispatcher,
                                                            tracker, domain))
             if not slot_values:
-                # reject form action execution
-                # if some slot was requested but nothing was extracted
-                # it will allow other policies to predict another action
-                raise ActionExecutionRejection(self.name(),
-                                               "Failed to validate slot {0} "
-                                               "with action {1}"
-                                               "".format(slot_to_fill,
-                                                         self.name()))
+                return []
 
         return [SlotSet(slot, value) for slot, value in slot_values.items()]
 

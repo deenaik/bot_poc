@@ -6,23 +6,31 @@ intents:
 - mood_great
 - mood_unhappy
 - bot_challenge
-- ticket_status
 - log_ticket
 - log_ticket_with_attributes
 - get_priority
 - get_category
+- get_ticketID
 - affirm_attachment
 - deny_attachment
 - file_upload
+- thank
+- change_priority
+- upload_file_on_ticket
+- valid_ticketID
+- get_ticket_status
 
 entities:
 - priority
 - requested_slot
 - category
+- ticketID
 slots:
   category:
     type: unfeaturized
   priority:
+    type: unfeaturized
+  ticketID:
     type: unfeaturized
   requested_slot:
     type: unfeaturized
@@ -52,6 +60,8 @@ templates:
   - text: Ohh...let me log a {priority} priority ticket for you
   utter_form_ticket_attributes:
   - text: Logging {priority} priority ticket for you
+  utter_invalid_ticketID:
+  - text: Oops..this is an invalid id. Please provide a valid ticket id.
   utter_ask_priority:
   - custom:
       blocks:
@@ -94,6 +104,13 @@ templates:
   - text: Your document has been uploaded successfully!!
   utter_deny_attachment:
   - text: "No problem, I will be here to assist you :smile:"
+  utter_welcome_message:
+  - text: 'Any time :wink:'
+  - text: "You're welcome :wink:"
+  - text: "My pleasure :simple_smile:"
+  - text: "ok....Let me know if you need any other assitance."
+  utter_change_priority:
+  - text: Gotcha, let me log a {priority} priority ticket for you. Do you wish to upload any relevant document?
 
 actions:
 - utter_greet
@@ -117,6 +134,11 @@ actions:
 - utter_upload_successful
 - utter_deny_attachment
 - action_file_upload
+- utter_welcome_message
+- utter_change_priority
+- action_validate_ticket
+- utter_invalid_ticketID
+- action_validate_ticket_for_status
 
 forms:
 - ticket_attributes_form

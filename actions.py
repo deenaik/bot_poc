@@ -1,5 +1,5 @@
 from typing import Any, Text, Dict, List
-
+import json
 from rasa_sdk import Action, Tracker
 from rasa_sdk.events import Restarted, AllSlotsReset
 from rasa_sdk.executor import CollectingDispatcher
@@ -31,19 +31,17 @@ class ActionLogTicket(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-          print(self.name())
+          ticket_attributes = {}
+          for key, value in tracker.current_slot_values().items():
+              if value:
+                  try:
+                      items = json.loads(value)
+                      for item in items:
+                          ticket_attributes[item] = items[item]
+                  except Exception as e:
+                      ticket_attributes[key] = value
+          print(ticket_attributes)
           dispatcher.utter_message("Ticket logged successfully! :)")
-          return[]
-
-class ActionFileUpload(Action):
-
-    def name(self) -> Text:
-        return "action_file_upload"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-          dispatcher.utter_template("utter_upload_successful", tracker)
           return[]
 
 class ActionResetSlots(Action):

@@ -39,11 +39,12 @@
 * log_ticket
  - action_identify_ticket_attributes
  - utter_ticket_attributes
- - slot {"priority": null} - ticket_attributes_form
+ - slot {"priority": null}
+ - ticket_attributes_form
  - form{"name":"ticket_attributes_form"}
  - form{"name":null}
 * affirm OR affirm_attachment
- - action_reset_slots
+ - slot {"file": null}
  - ticket_file_form
  - form{"name":"ticket_file_form"}
  - form{"name":null}
@@ -54,7 +55,8 @@
 * log_ticket
  - action_identify_ticket_attributes
  - utter_ticket_attributes
- - slot {"priority": null - ticket_attributes_form
+ - slot {"priority": null }
+ - ticket_attributes_form
  - form{"name":"ticket_attributes_form"}
  - form{"name":null}
 * deny OR deny_attachment
@@ -66,7 +68,11 @@
 * upload_file_on_ticket
  - action_validate_ticket
 * file_upload
- - action_file_upload
+ - slot {"file": null}
+ - ticket_file_form
+ - form{"name":"ticket_file_form"}
+ - form{"name":null}
+ - action_log_ticket
  - action_clear_memory 
  
 ## Case 2.2: Upload document to existing ticket - #TicketID invalid
@@ -75,7 +81,11 @@
 * valid_ticketID
  - action_validate_ticket
 * file_upload
- - action_file_upload
+ - slot {"file": null}
+ - ticket_file_form
+ - form{"name":"ticket_file_form"}
+ - form{"name":null}
+ - action_log_ticket
  - action_clear_memory
  
  ## Case 3.1: Get ticket status - #Ticketid valid

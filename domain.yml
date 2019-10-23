@@ -135,7 +135,6 @@ actions:
 - utter_ask_file
 - utter_upload_successful
 - utter_deny_attachment
-- action_file_upload
 - utter_welcome_message
 - utter_change_priority
 - action_validate_ticket

@@ -46,7 +46,7 @@ class ActionFileUpload(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
           print(tracker.current_state())
-          dispatcher.utter_template("utter_upload_successful")
+          dispatcher.utter_template("utter_upload_successful", tracker)
           return[]
 
 class ActionResetSlots(Action):
@@ -135,7 +135,7 @@ class FormTicketAttributes(FormAction):
             domain: Dict[Text, Any],
     ) -> List[Dict]:
         print(self.name())
-        dispatcher.utter_template("utter_form_ticket_attributes", tracker)
+        dispatcher.utter_template("utter_change_priority", tracker)
         return []
 
 class FormTicketFile(FormAction):
@@ -189,4 +189,25 @@ class FormTicketFile(FormAction):
     ) -> List[Dict]:
         print(self.name())
         dispatcher.utter_template("utter_form_ticket_attributes", tracker)
+        return []
+
+class ActionValidateTicket(Action):
+
+    def name(self) -> Text:
+        return "action_validate_ticket"
+
+    def slot_mappings(self):
+        return {
+            "ticketID": [self.from_entity(entity="ticketID",intent="get_ticketID")]
+        }
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        if tracker.get_slot("ticketID") == "TKT4566":
+            dispatcher.utter_template("utter_invalid_ticketID", tracker)
+        else:
+            dispatcher.utter_template("utter_click_upload", tracker)
+        print(self.name())
         return []

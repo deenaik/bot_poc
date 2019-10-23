@@ -68,6 +68,10 @@
 - required
 - needed it
 - it is relevant
+- sure
+- ya why not
+- yes please
+- ya sure
 
 ## intent:deny_attachment
 - not now
@@ -75,6 +79,8 @@
 - forget it
 - not needed
 - not relevant
+- maybe later
+- later
 
 ## intent:affirm
 - yes
@@ -140,6 +146,76 @@
 - [Medium Priority](priority)
 - [Low Priority](priority)
 
+## intent:change_priority
+- no, this issue is a showstopper for me, my work is stuck
+- no, this issue is a showstopper
+- log a critical issue
+- I need this to be logged as a critical issue
+- change priority to critical
+- I need it asap
+- this is urgent
+- this is showstopper
+
+## synonym:critical
+- urgent
+- showstopper
+- asap
+
 ## intent:file_upload
 - Test File
 - Attachment
+
+## intent:thank
+- Thanks, that was great help !!
+- Thanks that was helpful !!!
+- That was indeed helpful
+- You are a blessing
+- thnx
+- thank u
+- thank you
+- thanks
+- Thank you
+- Thanks
+- Thank you so much
+- Thanks bot
+- Thanks for that
+- cheers
+- cheers bro
+- ok thanks!
+- perfect thank you
+- thanks a bunch for everything
+- thanks a ton
+- thanks for the help
+- thanks a lot
+- amazing, thanks
+- cool, thanks
+- cool thank you
+- thanks!
+- thanks that was great help
+
+## intent:get_ticketID
+- [TKT456](ticketID)
+- [TKT234](ticketID)
+- [TKT123](ticketID)
+- [TKT789](ticketID)
+- [TKT677](ticketID)
+- [TKT777](ticketID)
+- [TKT546](ticketID)
+- [TKT789](ticketID)
+
+## intent:upload_file_on_ticket
+- I want to upload a document against my ticket TKT456
+- can you upload a file for TKT456
+- i need to upload a doc against TKT123
+- hey, attach a document against TKT789
+- can you attach a doc on TKT677
+- can you load a doc on TKT234
+- i need to load a doc against TKT546
+- please upload a doc file against TKT789
+
+## intent:valid_ticketID
+- my bad, the id is TKT456
+- my mistake, use TKT456
+- ohh, its TKT456
+- ok try TKT456
+- TKT456

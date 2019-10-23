@@ -13,6 +13,8 @@ WORKDIR ${RASA_NLU_HOME}
 
 COPY . ${RASA_NLU_HOME}
 
+COPY slack.py /build/lib/python3.6/site-packages/rasa/core/channels/slack.py
+
 EXPOSE 5005
 
 CMD ["run", "--verbose", "--debug", "--enable-api"]

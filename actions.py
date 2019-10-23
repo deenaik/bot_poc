@@ -80,7 +80,7 @@ class ActionGetTicketStatus(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message("Ticket Status! :)")
+        dispatcher.utter_message("Your ticket is currently “under analysis”. Due date for ticket resolution is 30-Oct-2019.")
         print(self.name())
         return []
 
@@ -209,5 +209,24 @@ class ActionValidateTicket(Action):
             dispatcher.utter_template("utter_invalid_ticketID", tracker)
         else:
             dispatcher.utter_template("utter_click_upload", tracker)
+        print(self.name())
+        return []
+
+class ActionValidateTicketForStatus(Action):
+
+    def name(self) -> Text:
+        return "action_validate_ticket_for_status"
+
+    def slot_mappings(self):
+        return {
+            "ticketID": [self.from_entity(entity="ticketID",intent="get_ticketID")]
+        }
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        if tracker.get_slot("ticketID") == "TKT4566":
+            dispatcher.utter_template("utter_invalid_ticketID", tracker)
         print(self.name())
         return []

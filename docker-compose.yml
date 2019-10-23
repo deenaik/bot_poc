@@ -30,8 +30,7 @@ services:
       - rasa_logs:/app/logs
 
   action_server:
-    build: action_server/.
-    image: action_server
+    image: rasa
     networks:
       - chatbotnetwork
     container_name: action_server
@@ -40,7 +39,7 @@ services:
       - SHAREPOINT_URL=http://dummy_rest:8080
     ports:
       - "5055:5055"
-    command: "start --actions action_server.actions"
+    command: "run actions"
 
   dummy_rest:
     build: dummy_rest/.

@@ -14,7 +14,6 @@ train:
   stage: train
   script:
     - docker-compose down || true
-    - docker-compose up -d --build action_server
     - docker-compose up -d --build dummy_rest
     - docker-compose up --build rasa_train
 

@@ -20,6 +20,9 @@
 - no way
 - not really
 - nope
+- modify the priority
+- just change the priority
+- i don't agree with this priority
 
 ## intent:mood_great
 - perfect
@@ -202,32 +205,39 @@
 - [TKT546](ticketID)
 - [TKT789](ticketID)
 - [TKT4566](ticketID)
-- I want to upload a document against my ticket TKT456
-- can you upload a file for TKT456
-- i need to upload a doc against TKT123
-- hey, attach a document against TKT789
-- can you attach a doc on TKT677
-- can you load a doc on TKT234
-- i need to load a doc against TKT546
-- please upload a doc file against TKT789
+- I want to upload a document against my ticket [TKT456]
+- can you upload a file for [TKT456](ticketID)
+- i need to upload a doc against [TKT123](ticketID)
+- hey, attach a document against [TKT789](ticketID)
+- can you attach a doc on [TKT677](ticketID)
+- can you load a doc on [TKT234](ticketID)
+- i need to load a doc against [TKT546](ticketID)
+- please upload a doc file against [TKT789](ticketID)
 
 ## intent:valid_ticketID
-- my bad, the id is TKT456
-- my mistake, use TKT456
-- ohh, its TKT456
-- ok try TKT456
+- my bad, the id is [TKT456](ticketID)
+- my mistake, use [TKT456](ticketID)
+- ohh, its [TKT456](ticketID)
+- ok try [TKT456](ticketID)
 
 ## intent:get_ticket_status
-- What is the current status of my ticket TKT456
-- get me the status of TKT123
-- show me the current status of TKT456
-- i need status of TKT234
-- gimme status of TKT456
-- find the status of TKT678
-- can you help me with the status of TKT675
-- get me status of TKT555
-- help me status of TKT234
-- track the status of TKT789
-- what is the progress on TKT345
-- report the progress of TKT789
-- gimme status of TKT4566
+- What is the current status of my ticket [TKT456](ticketID)
+- get me the status of [TKT123](ticketID)
+- show me the current status of [TKT456](ticketID)
+- i need status of [TKT234](ticketID)
+- gimme status of [TKT456](ticketID)
+- find the status of [TKT678](ticketID)
+- can you help me with the status of [TKT675](ticketID)
+- get me status of [TKT555](ticketID)
+- help me status of [TKT234](ticketID)
+- track the status of [TKT789](ticketID)
+- what is the progress on [TKT345](ticketID)
+- report the progress of [TKT789](ticketID)
+- gimme status of [TKT4566](ticketID)
+
+
+## intent:file_upload_json
+- { file: [FPC96EY3V](file), text: [''](file_text) }
+- { file: [FPC96EY3V](file), text: ['Attachment'](file_text) }
+- { file: [FPC96EY3V](file), text: ['Sample File'](file_text) }
+- { file: [FPC96EY3V](file), text: ['Screenshot'](file_text) }

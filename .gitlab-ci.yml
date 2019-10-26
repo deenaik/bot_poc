@@ -22,7 +22,7 @@ test:
     - nluvm
   stage: test
   script:
-    - echo "Need to add test scripts"
+    - docker-compose up rasa_test
 
 dev_deploy:
   tags:

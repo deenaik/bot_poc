@@ -334,19 +334,9 @@ class SlackInput(InputChannel):
                 if "challenge" in output:
                     return response.json(output.get("challenge"))
 
-                elif self._is_user_message(output):
-                        
-                    return await self.process_message(
-                        request,
-                        on_new_message,
-                        text=self._sanitize_user_message(
-                            output["event"]["text"], output["authed_users"]
-                        ),
-                        sender_id=output.get("event").get("user"),
-                    )
                 elif self._is_file_upload(output):
-                    text = '{ "file": '+output["event"]["files"][0]["id"] + \
-						    ', "text": '+output["event"]["text"]+' }'
+                    text = '{ "file": "'+output["event"]["files"][0]["id"] + \
+						    '", "file_text": "'+output["event"]["text"]+'" }'
                         
                     return await self.process_message(
                         request,
@@ -357,6 +347,16 @@ class SlackInput(InputChannel):
                         sender_id=output.get("event").get("user"),
                     )
 
+                elif self._is_user_message(output):
+
+                    return await self.process_message(
+                        request,
+                        on_new_message,
+                        text=self._sanitize_user_message(
+                            output["event"]["text"], output["authed_users"]
+                        ),
+                        sender_id=output.get("event").get("user"),
+                    )
             return response.text("Bot message delivered")
 
         return slack_webhook

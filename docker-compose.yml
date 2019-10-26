@@ -14,6 +14,7 @@ services:
   rasa_train:
     build: .
     image: rasa
+    user: root
     networks:
       - chatbotnetwork
     container_name: rasa_train
@@ -23,6 +24,19 @@ services:
       - rasa_logs:/app/logs
     command: "train --verbose --debug --fixed-model-name rasa-model --domain domains"
   
+  rasa_test:
+    image: rasa
+    user: root
+    networks:
+      - chatbotnetwork
+    container_name: rasa_test
+    hostname: rasa_test
+    volumes:
+      - rasa_result:/app/results
+      - rasa_training:/app/models
+      - rasa_logs:/app/logs
+    command: "rasa test core --stories test/stories_evalution.md"
+
   rasa:
     image: rasa
     networks:
@@ -56,7 +70,7 @@ services:
       - mongo
     ports:
       - "5055:5055"
-    command: "run actions"
+    command: "run actions --debug"
 
   dummy_rest:
     build: dummy_rest/.
@@ -81,6 +95,7 @@ networks:
   chatbotnetwork:
 
 volumes:
+  rasa_result:
   rasa_data:
   rasa_training:
   rasa_logs:

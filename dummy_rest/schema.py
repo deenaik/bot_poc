@@ -14,7 +14,7 @@ class Tickets(Document):
     Status = StringField(max_length=50)
 
     meta = {
-        'allow_inheritance': True, 
+        'allow_inheritance': True,
         'indexes': [
             '$TiketID',
         ]

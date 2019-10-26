@@ -312,7 +312,7 @@ class SlackInput(InputChannel):
         async def webhook(request: Request):
             if request.form:
                 output = request.form
-                payload = json.loads(output["payload"][0])
+                payload = json.loads(output["payload"][0].decode())
 
                 if self._is_interactive_message(payload):
                     sender_id = payload["user"]["id"]

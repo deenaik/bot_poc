@@ -3,7 +3,6 @@
 from flask import Flask, request
 from flask_restplus import Resource, Api, fields
 import random
-import re
 from schema import Tickets
 
 flask_app = Flask(__name__)

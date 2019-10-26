@@ -209,7 +209,7 @@ class FormTicketFile(FormAction):
 
     def fill_slot(self,text):
         try:
-            file = json.loads(text)
+            file = json.loads(text.decode())
             print(file['file'])
             if file['file']:
                 data, error = self.get_file_link(file['file'])

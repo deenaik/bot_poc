@@ -52,7 +52,7 @@ class InfraTicket(Resource):
 			 params={ 'ticketID': 'Ticket ID'})
     def get(self, **kwargs):
         ticketid = request.args.get('ticketID')
-        if ticketid == None:
+        if ticketid is None:
             return { 'TKT' + str(random.randrange(100, 300, 1)): random.choice(status_fields),
                      'TKT' + str(random.randrange(100, 300, 1)): random.choice(status_fields) }, 200
         if int(ticketid[3:]) < 300:
